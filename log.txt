@@ -1,0 +1,7 @@
+nohup: ignoring input
+Traceback (most recent call last):
+  File "run.py", line 5, in <module>
+    from app import app
+  File "/home/hawkseye/Desktop/DASH-FLASK-ADMIN/app.py", line 2, in <module>
+    import dash_bootstrap_components as dbc
+ImportError: No module named dash_bootstrap_components

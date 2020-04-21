@@ -1,0 +1,66 @@
+Running on http://127.0.0.1:8050/
+Debugger PIN: 638-197-104
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+Running on http://127.0.0.1:8050/
+Debugger PIN: 654-796-459
+Running on http://127.0.0.1:8050/
+Debugger PIN: 034-490-404
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+Running on http://127.0.0.1:8050/
+Debugger PIN: 873-913-826
+Running on http://127.0.0.1:8050/
+Debugger PIN: 304-183-219
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+Running on http://127.0.0.1:8050/
+Debugger PIN: 383-809-571
+Running on http://127.0.0.1:8050/
+Debugger PIN: 212-998-246
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+Running on http://127.0.0.1:8050/
+Debugger PIN: 054-337-094
+Traceback (most recent call last):
+  File "run.py", line 5, in <module>
+    from app import app
+  File "/home/hawkseye/Desktop/DASH-FLASK-ADMIN/app.py", line 2, in <module>
+    import dash_bootstrap_components as dbc
+ImportError: No module named dash_bootstrap_components
+Traceback (most recent call last):
+  File "run.py", line 5, in <module>
+    from app import app
+  File "/home/hawkseye/Desktop/DASH-FLASK-ADMIN/app.py", line 2, in <module>
+    import dash_bootstrap_components as dbc
+ImportError: No module named dash_bootstrap_components
+Running on http://127.0.0.1:8050/
+Debugger PIN: 579-360-389
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+Running on http://127.0.0.1:8050/
+Debugger PIN: 972-465-358
+Running on http://127.0.0.1:8050/
+Debugger PIN: 854-627-095
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+Running on http://127.0.0.1:8050/
+Debugger PIN: 682-877-701
