@@ -19,8 +19,8 @@ import requests
 
 
 apis = {
-    'newsapi' : '26c22844bef74367bafc37791a204fea',
-    'mapbox': 'pk.eyJ1IjoiY2ttYXBib3giLCJhIjoiY2s4bHNvM3FhMDRtbjNtbzczc2oyOW55ciJ9.rmWgbvV2cC9Cu6Oxtl3eQw'
+    'newsapi' : '26c22844be..............',
+    'mapbox': 'pk.eyJ1IjoiY2ttYXBib3gi3eQw.................'
 }
 
 
