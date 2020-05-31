@@ -10,7 +10,7 @@ external_stylesheets = [
 meta_tags = [
     {
         "name": "description",
-        "content": "Live coronavirus news, statistics, and visualizations tracking the number of cases and death toll due to COVID-19, with up-to-date testing center information by US states and counties. Also provides current SARS-COV-2 vaccine progress and treatment research across different countries. Sign up for SMS updates.",
+        "content": "Coronavirus News, Statistics, and Visualizations",
     },
     {"name": "viewport", "content": "width=device-width, initial-scale=1.0"},
 ]

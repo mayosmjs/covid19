@@ -12,8 +12,7 @@ app.layout = html.Div([
 ])
 
 
-@app.callback(Output('page-content', 'children'),
-              [Input('url', 'pathname')])
+@app.callback(Output('page-content', 'children'), [Input('url', 'pathname')])
 def display_page(pathname):
     if pathname == '/':
         return home.layout
@@ -23,4 +22,4 @@ def display_page(pathname):
         return '404'
 
 if __name__ == '__main__':
-    app.run_server(debug=False)
+    app.run_server(port= 8080,debug=False)

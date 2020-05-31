@@ -19,68 +19,9 @@ import requests
 
 
 apis = {
-        'newsapi' : '26c22844bef74367bafc37791a204fea',
-        'mapbox': 'pk.eyJ1IjoiY2ttYXBib3giLCJhIjoiY2s4bHNvM3FhMDRtbjNtbzczc2oyOW55ciJ9.rmWgbvV2cC9Cu6Oxtl3eQw'
-    }
-    
-# logging.basicConfig(level = logging.INFO, filename = "log.log",format = '%(message)s')
-
-
-# def download(url, filename):
-#     with open(filename, 'wb') as f:
-#         response = requests.get(url, stream=True)
-#         total = response.headers.get('content-length')
-
-#         if total is None:
-#             f.write(response.content)
-#         else:
-#             downloaded = 0
-#             total = int(total)
-#             for data in response.iter_content(chunk_size=max(int(total/1000), 1024*1024)):
-#                 downloaded += len(data)
-#                 f.write(data)
-#                 done = int(50*downloaded/total)
-#                 sys.stdout.write('\r[{}{}]'.format('█' * done, '.' * (50-done)))
-#                 sys.stdout.flush()
-#     sys.stdout.write('\n')
-
-
-# def get_git_data():
-#     if not os.path.exists('data'):
-#         os.mkdir('data')
-#         print("Directory ", 'data',  " Created ")
-
-
-#     else:
-#         path ="data/COVID-19-master.zip"
-#         zipurl = 'https://github.com/CSSEGISandData/COVID-19/archive/master.zip'
-#         zipresp = urlopen(zipurl)
-#         tempzip = open(path, "wb")
-#         tempzip.write(zipresp.read())
-#         tempzip.close()
-        
-#         with ZipFile('data/COVID-19-master.zip','r') as zip:
-#         # zip.printdir() 
-#             print('Extracting all the files now...') 
-#         # print(zip.namelist())
-#             zip.extractall(path="data",members=['COVID-19-master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv',
-#                                             'COVID-19-master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv',
-#                                             'COVID-19-master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv'
-#                                             ]) 
-#             print('Done!') 
-
-    
-    
-#        # https://thispointer.com/python-get-last-modification-date-time-of-a-file-os-stat-os-path-getmtime/
-# def update_data():
-#        fold_date = time.strftime('%d/%m/%Y', time.localtime(os.path.getmtime('data')))
-#        if fold_date < time.strftime('%d/%m/%Y'):  
-#            print("Downloading Data from Hopkins CSSE ....") 
-#            download('https://github.com/CSSEGISandData/COVID-19/archive/master.zip','data/COVID-19-master.zip')
-#            get_git_data()
-#        logging.info(time.ctime()) 
-        
-# update_data()
+    'newsapi' : '26c22844bef74367bafc37791a204fea',
+    'mapbox': 'pk.eyJ1IjoiY2ttYXBib3giLCJhIjoiY2s4bHNvM3FhMDRtbjNtbzczc2oyOW55ciJ9.rmWgbvV2cC9Cu6Oxtl3eQw'
+}
 
 
 
@@ -110,7 +51,7 @@ full_data_2 = pd.melt(full_data,id_vars=['Province/State','Country/Region','Lat'
 
 #merge pdf with continents
 continents_csv = pd.read_csv("continents.csv")
-full_data.rename(columns = {'Country/Region':'Country','Province/State':'State'}, inplace = True) 
+full_data.rename(columns = {'Country/Region':'Country','Province/State':'State'}, inplace = True)
 final_merged = pd.merge(full_data,continents_csv,on='Country',how='left')
 final_merged = final_merged.replace(np.nan, 0)
 
@@ -125,7 +66,7 @@ continent_options.append({'label' : 'World','value':'World'})
 
 African_countries_options= [ {"label":val[0], "value":val[1]} for val in zip(African_countries, African_countries)]
 African_countries_options.append( {'label' : 'Africa','value':'Africa'} )
- 
+
 
 
 
@@ -134,14 +75,14 @@ African_countries_options.append( {'label' : 'Africa','value':'Africa'} )
 #   .query('Cases == "Active"')\
 #   .groupby('Country/Region')\
 #   .agg('min')
-  
+
 
 # new_df = new_df \
 #     .query('Emoji !="" ') \
 #     .groupby(['Emoji','Name'])\
 #     .size()\
 #     .reset_index(name="Count")\
-    
+
 
 African_countries = sorted(full_data['Country'].unique())
 
@@ -156,7 +97,7 @@ all_countries_options = [{"label":val[0], "value":val[1]} for val in zip(all_cou
 full_data = full_data.sort_values(by=["Country","State","Date"])
 
 cols_to_mutate = ['Confirmed','Deaths','Recovered']
-for col in cols_to_mutate: 
+for col in cols_to_mutate:
     full_data[col+'_new_case'] = full_data[col].diff()
 
 
@@ -184,7 +125,7 @@ for i in a:
 
 
 # def zero_if_negative(x):
-    
+
 #     if x < 0:
 #         return 0
 #     return x
@@ -209,8 +150,3 @@ fold_date =  lastline
 #     lines = f.read().splitlines()
 #     last_line = lines[-1]
 #     print last_line
-
-
-
-
-

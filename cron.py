@@ -16,10 +16,10 @@ import sys
 import subprocess
 
 
-    
+
 logging.basicConfig(level = logging.INFO, filename = "log.log",format = '%(message)s')
 
-
+#Downloading github data function
 def download(url, filename):
     with open(filename, 'wb') as f:
         response = requests.get(url, stream=True)
@@ -39,6 +39,7 @@ def download(url, filename):
     sys.stdout.write('\n')
 
 
+# create a data folder if it does not exists
 def get_git_data():
     if not os.path.exists('data'):
         os.mkdir('data')
@@ -52,49 +53,44 @@ def get_git_data():
         tempzip = open(path, "wb")
         tempzip.write(zipresp.read())
         tempzip.close()
-        
-        with ZipFile('data/COVID-19-master.zip','r') as zip:
-        # zip.printdir() 
-            print('Extracting all the files now...') 
-        # print(zip.namelist())
-            zip.extractall(path="data",members=['COVID-19-master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv',
-                                            'COVID-19-master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv',
-                                            'COVID-19-master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv'
-                                            ]) 
-            print('Done!') 
 
-    
-    
-       # https://thispointer.com/python-get-last-modification-date-time-of-a-file-os-stat-os-path-getmtime/
+        print("Unzipping Hopkins csse files ... ")
+
+        with ZipFile('data/COVID-19-master.zip','r') as zip:
+        # zip.printdir()
+            print('Extracting all the files now...')
+        # print(zip.namelist())
+            zip.extractall(path="data",members=[
+            'COVID-19-master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv',
+            'COVID-19-master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv',
+            'COVID-19-master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv'
+            ])
+            print('Done!')
+
+
+
+
+# update the current data in the data folder
 def update_data():
-        print("Downloading Data from Hopkins CSSE ....") 
+        print("Downloading Data from Hopkins CSSE ....")
         download('https://github.com/CSSEGISandData/COVID-19/archive/master.zip','data/COVID-19-master.zip')
         get_git_data()
-        logging.info(time.ctime()) 
+        logging.info(time.ctime())
 
 update_data()
 
 
 
-
-
 #kill the port
 print("Initialize port kill")
-subprocess.call(["fuser",'-k','8050/tcp'])
+subprocess.call(["fuser",'-k','8080/tcp'])
+os.system('forever stop -c python3 run.py')
 print("Mission port complete!")
 
 
 
-#restart the server
+#restart the server message
 print("Initialize server up")
-# subprocess.call(["python3","run.py","&"])
-# print("Mission Server up initiated!")
 
-# subprocess.Popen(["python3","/home/hawkseye/Desktop/DASH-FLASK-ADMIN/run.py","&"], 
-#            stdout=subprocess.PIPE, 
-#            stderr=subprocess.STDOUT)
-
-# subprocess.Popen(["/usr/bin/python3","/home/hawkseye/Desktop/DASH-FLASK-ADMIN/run.py","&"])
-
-
+# run the command to start up the server
 os.system('forever start -c python3 run.py')

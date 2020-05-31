@@ -205,7 +205,7 @@ html.Div([
             ),
            
         ],className="card stats-table-div")
-    ],className='col-md-3'),
+    ],className='col-md-3 hid-card'),
 
 
 
@@ -509,7 +509,7 @@ def display_news(value):
     if(value == 'World'):
         value = 'US'
     elif(value == 'Africa'):
-        value = 'ke'
+        value = 'KE'
     elif(value == 'Europe'):
         value = 'EU'
     elif(value == 'Oceania'):
@@ -517,7 +517,7 @@ def display_news(value):
     else:
         value = 'US'
 
-    rss_url='https://news.google.com/rss/search?q=Korona&gl='+value
+    rss_url='https://news.google.com/rss/search?q=corona&gl='+value
     #Read feed xml data
     news_feed = feedparser.parse(rss_url) 
     #Flatten data

@@ -12,3 +12,4 @@ requests
 folium
 newsapi-python
 numpy
+dash_leaflet
